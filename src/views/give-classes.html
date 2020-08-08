@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="./styles/partials/header.css">
     <link rel="stylesheet" href="./styles/partials/forms.css">
     <link rel="stylesheet" href="./styles/partials/page-give-classes.css">
-
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&amp;family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet">
+    <script src="/scripts/addField.js" defer></script>
 </head>
 <body id="page-give-classes">
     <div id="container">
@@ -69,10 +69,10 @@
                         <input name="cost" id="cost" type="number" required>
                     </div>
                 </fieldset>
-                <fieldset>
+                <fieldset id="schedule-items">
                     <legend>
                         Horários disponíveis
-                        <button id="add-item">+ Novo Horário</button>
+                        <button type="button" id="add-time">+ Novo Horário</button>
                     </legend>
                     <div class="schedule-item">
                         <div class="select-block">
@@ -99,13 +99,15 @@
                 </fieldset>
             </form>
             <footer>
-                <p>
+                <div class="footer-content">
                     <img src="/images/icons/warning.svg" alt="Aviso Importante">
-                    <p>Importante!</p>
-                    <p>
-                        Preencha todos os dados
-                    </p>
-                </p>
+                    <div class="footer-text">
+                        <p>Importante!</p>
+                        <p>
+                            Preencha todos os dados
+                        </p>    
+                    </div>
+                </div>
                 <button type="submit" form="create-class">Salvar cadastro</button>
             </footer>
         </main>
