@@ -1,13 +1,16 @@
 const express = require('express');
 const server = express();
-server.use(express.static("public"))
-.get("/", (req, res) => {
-    return res.sendFile(__dirname + "/views/index.html")
+const {pageLanding, pageStudy, pageGiveClasses, saveClasses} = require('./pages')
+const nunjucks = require('nunjucks');
+nunjucks.configure('src/views', {
+    express: server,
+    noCache: true,
 })
-.get("/study", (req, res) => {
-    return res.sendFile(__dirname + "/views/study.html")
-})
-.get("/give-classes", (req, res) => {
-    return res.sendFile(__dirname + "/views/give-classes.html")
-})
+server
+.use(express.urlencoded({extended: true}))
+.use(express.static("public"))
+.get("/", pageLanding)
+.get("/study", pageStudy)
+.get("/give-classes", pageGiveClasses)
+.post("/save-classes", saveClasses)
 .listen(5500)
